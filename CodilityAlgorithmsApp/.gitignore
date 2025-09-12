@@ -1,0 +1,76 @@
+# .gitignore for Visual Studio and .NET projects
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# NuGet
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Others
+*.log
+*.vs/
+_ReSharper*/
+[Tt]est[Rr]esult*/
+*.coverage
+*.coverageinfo
+*.sonarqube
+
+# DotCover
+*.dotCover
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+
+# Azure Pipelines
+*.azure-pipelines.yml
+
+# Local history for JetBrains IDEs
+.localhistory/
+
+# Windows image file caches
+*.jfif
+*.jpe
+*.jpeg
+*.jpg
+*.png
+*.gif
+*.tif
+*.tiff
+*.ico
+
+# Backup & report files
+*.bak
+*.swp
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+
+# Others
+*.dbmdl
+*.dbmdl-journal
+
+# End of .gitignore

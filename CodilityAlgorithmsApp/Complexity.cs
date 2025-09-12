@@ -1,0 +1,81 @@
+// Complexity.cs
+// ??????? ??????? ????????? ?????????? (Big O) ?? C#
+
+using System;
+
+public static class ComplexityExamples
+{
+    // O(1) — ??????????? ?????????
+    public static int GetFirst(int[] arr)
+    {
+        return arr[0];
+    }
+
+    // O(N) — ???????? ?????????
+    public static int Sum(int[] arr)
+    {
+        int sum = 0;
+        foreach (var x in arr) sum += x;
+        return sum;
+    }
+
+    // O(N^2) — ???????????? ?????????
+    public static int Quadratic(int[] arr)
+    {
+        int count = 0;
+        for (int i = 0; i < arr.Length; i++)
+            for (int j = 0; j < arr.Length; j++)
+                count++;
+        return count;
+    }
+
+    // O(log N) — ??????????????? ????????? (???????? ?????)
+    public static int BinarySearch(int[] arr, int target)
+    {
+        int left = 0, right = arr.Length - 1;
+        while (left <= right)
+        {
+            int mid = (left + right) / 2;
+            if (arr[mid] == target) return mid;
+            if (arr[mid] < target) left = mid + 1;
+            else right = mid - 1;
+        }
+        return -1;
+    }
+
+    // O(N log N) — ???????-??????????????? ????????? (??????????)
+    public static void MergeSort(int[] arr)
+    {
+        if (arr.Length <= 1) return;
+        MergeSortRecursive(arr, 0, arr.Length - 1);
+    }
+
+    private static void MergeSortRecursive(int[] arr, int left, int right)
+    {
+        if (left >= right) return;
+        int mid = (left + right) / 2;
+        MergeSortRecursive(arr, left, mid);
+        MergeSortRecursive(arr, mid + 1, right);
+        Merge(arr, left, mid, right);
+    }
+
+    private static void Merge(int[] arr, int left, int mid, int right)
+    {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+        Array.Copy(arr, left, L, 0, n1);
+        Array.Copy(arr, mid + 1, R, 0, n2);
+        int i = 0, j = 0, k = left;
+        while (i < n1 && j < n2)
+        {
+            if (L[i] <= R[j]) arr[k++] = L[i++];
+            else arr[k++] = R[j++];
+        }
+        while (i < n1) arr[k++] = L[i++];
+        while (j < n2) arr[k++] = R[j++];
+    }
+}
+
+// ?????? ????? ???????????? ???????????? ??????? ????????? ?????????.
