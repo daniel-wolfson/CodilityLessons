@@ -1,6 +1,4 @@
-﻿using System;
-
-public static class Lesson1
+﻿public static class Lesson1
 {
     public static int BinaryGap(int N)
     {
@@ -31,9 +29,33 @@ public static class Lesson1
         return maxGap;
     }
 
+    public static int BinaryGap2(int N)
+    {
+        int value = 0;
+        var results = new List<int>();
+        var binary = Convert.ToString(N, 2);
+
+        foreach (var c in binary)
+        {
+            if (c.Equals('0'))
+            {
+                value += 1;
+            }
+            else
+            {
+                results.Add(value);
+                value = 0;
+            }
+        }
+
+        return results.Max();
+    }
+
     public static void BinaryGap_Test()
     {
-        int result = BinaryGap(1041);
-        Console.WriteLine($"BinaryGap(1041) = {result} (expected 5)");
+        int result1 = BinaryGap(1041);
+        Console.WriteLine($"BinaryGap(1041) = {result1} (expected 5)");
+        int result2 = BinaryGap2(1041);
+        Console.WriteLine($"BinaryGap(1041) = {result1} (expected 5)");
     }
 }

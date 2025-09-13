@@ -58,11 +58,54 @@
         return result;
     }
 
+    public static int OddOccurrencesInArray2(int[] A)
+    {
+        return A.Aggregate((x, y) => x ^ y);
+    }
+
     // Test method for OddOccurrencesInArray
     public static void OddOccurrencesInArray_Test()
     {
         int[] A = { 9, 3, 9, 3, 9, 7, 9 };
         int result = OddOccurrencesInArray(A);
         Console.WriteLine($"OddOccurrencesInArray([9,3,9,3,9,7,9]) = {result} (expected 7)");
+        int result2 = OddOccurrencesInArray2(A);
+    }
+
+    // CyclicRotation: Rotates array A K times to the right.
+    // Each element is shifted right by one index, and the last element moves to the first place.
+    // Example: A = [3, 8, 9, 7, 6], K = 3 => [9, 7, 6, 3, 8]
+    // If K > N, only K % N rotations are needed.
+    public static int[] Rotaition2(int[] A, int K)
+    {
+        int[] values = A;
+
+        for (int i = 0; i < K; i++)
+        {
+            values = Swap(values);
+        }
+
+        return values;
+    }
+
+    private static int[] Swap(int[] intArray)
+    {
+        int[] newArray = new int[intArray.Length];
+
+        if (newArray.Length == 0)
+        {
+            return newArray;
+        }
+        else
+        {
+            newArray[0] = intArray[intArray.Length - 1];
+
+            for (int i = 0; i < intArray.Length - 1; i++)
+            {
+                newArray[i + 1] = intArray[i];
+            }
+        }
+
+        return newArray;
     }
 }

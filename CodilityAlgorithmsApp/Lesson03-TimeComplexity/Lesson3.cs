@@ -35,12 +35,50 @@
         return (int)(expectedSum - actualSum);
     }
 
+    public static int PermMissingElem2(int[] A)
+    {
+        var values = A.OrderBy(x => x).ToList();
+        var result = 0;
+
+        // Optimized missing element detection for edge cases
+        if (values.Count == 0)
+            result = 1;
+        else if (values.Count == 1)
+            result = values[0] == 1 ? 2 : 1;
+        else if (values[0] == 2)
+            result = 1;
+        else
+            result = 0;
+
+        if (result == 0)
+        {
+            for (int i = 0; i < values.Count - 1; i++)
+            {
+                if (values[i + 1] != values[i] + 1)
+                {
+                    result = values[i] + 1;
+                    break;
+                }
+                else if (values[i + 1] == values[values.Count - 1])
+                {
+                    result = values[i + 1] + 1;
+                    break;
+                }
+            }
+        }
+
+        return result;
+
+    }
+
     // Test method for PermMissingElem
     public static void PermMissingElem_Test()
     {
         int[] A = { 2, 3, 1, 5 };
         int result = PermMissingElem(A);
+        int result2 = PermMissingElem2(A);
         Console.WriteLine($"PermMissingElem([2,3,1,5]) = {result} (expected 4)");
+        Console.WriteLine($"PermMissingElem([2,3,1,5]) = {result2} (expected 4)");
     }
 
     // TapeEquilibrium: Returns the minimal difference that can be achieved by splitting the array A.

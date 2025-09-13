@@ -3,20 +3,20 @@
     static void Main(string[] args)
     {
         // Lesson 1
-        Lesson1.BinaryGap_Test();
+        //Lesson1.BinaryGap_Test();
 
         // Lesson 2
-        Lesson2.Rotaition_Test();
-        Lesson2.OddOccurrencesInArray_Test();
+        //Lesson2.Rotaition_Test();
+        //Lesson2.OddOccurrencesInArray_Test();
 
         // Lesson 3
-        Lesson3.FrogJmp_Test();
-        Lesson3.PermMissingElem_Test();
-        Lesson3.TapeEquilibrium_Test();
+        //Lesson3.FrogJmp_Test();
+        //Lesson3.PermMissingElem_Test();
+        //Lesson3.TapeEquilibrium_Test();
 
         // Lesson 4
-        Lesson4.FrogRiverOne_Test();
         Lesson4.PermCheck_Test();
+        Lesson4.FrogRiverOne_Test();
         Lesson4.MaxCounters_Test();
 
         // Lesson 5
